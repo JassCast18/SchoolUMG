@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mtXyIYzC75k=",
+  "dgSpecHash": "l8VUPHT2KBw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\AccesoDatos\\AccesoDatos.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\AccesoDatos\\AccesoDatos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

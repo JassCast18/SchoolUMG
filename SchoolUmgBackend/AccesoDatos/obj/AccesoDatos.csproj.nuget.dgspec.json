@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\AccesoDatos\\AccesoDatos.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\AccesoDatos\\AccesoDatos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\AccesoDatos\\AccesoDatos.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\AccesoDatos\\AccesoDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\AccesoDatos\\AccesoDatos.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\AccesoDatos\\AccesoDatos.csproj",
         "projectName": "AccesoDatos",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\AccesoDatos\\AccesoDatos.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\AccesoDatos\\AccesoDatos.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\AccesoDatos\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\AccesoDatos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

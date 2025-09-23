@@ -160,3 +160,97 @@ export function eliminarCalificacion(id){
         return text;
     });
 }
+
+/* PROFESORES */
+export function getProfesores(){
+    return fetch(`${URL}profesores`)
+    .then(res => {
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status);
+        return res.json();
+    });
+}
+export function getProfesor(usuario){
+    return fetch(`${URL}profesor/${usuario}`)
+    .then(res => {
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status);
+        return res.json();
+    });
+}
+
+export function insertarProfesor(profesor){
+    const url= `${URL}profesor`;
+    const body ={
+        usuario: profesor.usuario,
+        pass: profesor.pass,
+        nombre: profesor.nombre,
+        email: profesor.email
+        
+    };
+    return fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+}
+export function actualizarProfesor(usuario, profesor){
+    
+    const url = `${URL}profesor/${usuario}`;
+    const body = {
+        usuario: usuario,
+        pass: profesor.pass,
+        nombre: profesor.nombre,
+        email: profesor.email
+        
+    };
+    return fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+}
+export function eliminarProfesor(usuario){
+    return fetch(`${URL}profesor/${usuario}`, {
+        method: 'DELETE'
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+}
+
+//---------------------------------------------------------
+// GRAFICAS
+//---------------------------------------------------------
+
+// Obtener alumnos por asignatura
+export function getAlumnosPorAsignatura() {
+    return fetch(`${URL}getAlumnosPorAsignatura`)
+        .then(res => {
+            if (!res.ok) throw new Error('Error en la solicitud: ' + res.status);
+            return res.json();
+        });
+}
+
+// Obtener distribucion de calificaciones
+export function getDistribucionCalificaciones() {
+    return fetch(`${URL}getDistribucionCalificaciones`)
+        .then(res => {
+            if (!res.ok) throw new Error("Error en la solicitud: " + res.status);
+            return res.json();
+        });
+}

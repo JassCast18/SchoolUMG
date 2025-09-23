@@ -5,6 +5,7 @@ import { Inicio } from './pages/Inicio'
 import { Alumnos } from './pages/Alumnos'
 import { Calificaciones } from './pages/Calificaciones'
 import { PrivateRoute } from './components/PrivateRoute'
+import {Profesores} from './pages/Profesores'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         </PrivateRoute>
       }>
         <Route index element={<Inicio />} />
+        <Route path="profesores" element={<Profesores />} />
         <Route path="alumnos" element={<Alumnos />} />
         <Route path="calificaciones" element={<Calificaciones />} />
       </Route>

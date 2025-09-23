@@ -12,6 +12,9 @@ export const Sidebar = () => {
                 <Link className="nav-link text-white" to="/dashboard/alumnos">Alumnos</Link>
             </li>
             <li className="nav-item mb-2">
+                <Link className="nav-link text-white" to="/dashboard/profesores">Profesores</Link>
+            </li>
+            <li className="nav-item mb-2">
                 <Link className="nav-link text-white" to="/dashboard/calificaciones">Calificaciones</Link>
             </li>
         </ul>

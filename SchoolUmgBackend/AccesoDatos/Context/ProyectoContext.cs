@@ -26,6 +26,10 @@ public partial class ProyectoContext : DbContext
 
     public virtual DbSet<Profesor> Profesors { get; set; }
 
+    public virtual DbSet<AlumnosPorAsignatura> AlumnoPorAsignaturas { get; set; }
+
+    public virtual DbSet<DistribucionCalificaciones> DistribucionCalificaciones { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
            => optionsBuilder.UseSqlServer("Server=DESKTOP-PKLCDG4\\SQLEXPRESS01;Database=proyecto;User Id=jcastellanos;Password=toor;TrustServerCertificate=True;MultipleActiveResultSets=True");
@@ -146,6 +150,27 @@ public partial class ProyectoContext : DbContext
                 .HasColumnName("pass");
         });
 
+        modelBuilder.Entity<AlumnosPorAsignatura>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToView("vw_AlumnosPorAsignatura");
+            entity.Property(e => e.IdAsignatura).HasColumnName("idAsignatura");
+            entity.Property(e => e.NombreAsignatura).HasColumnName("NombreAsignatura");
+            entity.Property(e => e.TotalAlumnos).HasColumnName("TotalAlumnos");
+
+        });
+
+
+        modelBuilder.Entity<DistribucionCalificaciones>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToView("vw_DistribucionCalificaciones");
+            entity.Property(e => e.Matriculaid).HasColumnName("MatriculaId");
+            entity.Property(e => e.Alumnoid).HasColumnName("AlumnoId");
+            entity.Property(e => e.NombreAlumno).HasColumnName("NombreAlumno");
+            entity.Property(e => e.NotaFinal).HasColumnName("NotaFinal");
+
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 
