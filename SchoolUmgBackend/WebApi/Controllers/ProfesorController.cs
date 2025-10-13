@@ -27,5 +27,54 @@ namespace WebApi.Controllers
                     return null;
             }
         }
+
+        [HttpGet("profesores")]
+        public ActionResult<List<Profesor>> getProfesores()
+        {
+            return profesorDAO.getProfesores();
+        }
+
+        [HttpGet("profesor/{usuario}")]
+        public ActionResult<Profesor> getProfesorID(string usuario)
+        {
+            var profesor = profesorDAO.getProfesorID(usuario);
+            if (profesor == null)
+            {
+                return NotFound();
+            }
+            return profesor;
+        }
+
+        [HttpPost("profesor")]
+        public IActionResult insertarProfesor([FromBody] Profesor profesor)
+        {
+            
+            profesorDAO.insertarProfesor(profesor);
+            return Ok("Profesor insertado Correctamente");
+        }
+
+        [HttpPut("profesor/{usuario}")]
+        public IActionResult actualizarProfesor(string usuario, [FromBody] Profesor profesor)
+        {
+           
+            var existingProfesor = profesorDAO.getProfesorID(usuario);
+            if (existingProfesor == null)
+            {
+                return NotFound("Profesor no encontrado");
+            }
+            profesorDAO.actualizarProfesor(profesor);
+            return Ok("Profesor actualizado correctamente");
+        }
+        [HttpDelete("profesor/{usuario}")]
+        public IActionResult eliminarProfesor(string usuario)
+        {
+            var existingProfesor = profesorDAO.getProfesorID(usuario);
+            if (existingProfesor == null)
+            {
+                return NotFound("Profesor no encontrado");
+            }
+            profesorDAO.eliminarProfesor(usuario);
+            return Ok("Profesor eliminado correctamente");
+        }
     }
 }

@@ -16,6 +16,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApi.Controllers.AsignaturaController",
+    "Method": "actualizarProfesor",
+    "RelativePath": "api/ActualizarAsignatura",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "profesor",
+        "Type": "AccesoDatos.Models.Asignatura",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.CalificacionController",
     "Method": "actualizarCalificacion",
     "RelativePath": "api/actualizarCalificacion/{id}",
@@ -115,6 +136,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApi.Controllers.AsignaturaController",
+    "Method": "eliminarProfesor",
+    "RelativePath": "api/eliminarAsignatura",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.CalificacionController",
     "Method": "eliminarCalificacion",
     "RelativePath": "api/eliminarCalificacion/{id}",
@@ -128,6 +165,32 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProductoController",
+    "Method": "eliminarAlumno",
+    "RelativePath": "api/eliminarProducto/{id_producto}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_producto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AsignaturaController",
+    "Method": "getProfesores",
+    "RelativePath": "api/getAllAsignaturas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -147,6 +210,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApi.Controllers.GraficasController",
+    "Method": "GetAlumnosPorAsignatura",
+    "RelativePath": "api/getAlumnosPorAsignatura",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.AlumnoController",
     "Method": "getAlumnosProfesor",
     "RelativePath": "api/getAlumnosProfesor",
@@ -158,6 +231,22 @@
         "Name": "usuario",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AsignaturaController",
+    "Method": "getProfesorID",
+    "RelativePath": "api/getAsignaturaId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -199,6 +288,68 @@
     ]
   },
   {
+    "ContainingType": "WebApi.Controllers.GraficasController",
+    "Method": "GetDistribucionCalificaciones",
+    "RelativePath": "api/getDistribucionCalificaciones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProductoController",
+    "Method": "getAsignaturas",
+    "RelativePath": "api/getProductos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProductoController",
+    "Method": "getCalificacionId",
+    "RelativePath": "api/getProductosId/{id_producto}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_producto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[AccesoDatos.Models.Calificacion, AccesoDatos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.AsignaturaController",
+    "Method": "insertarProfesor",
+    "RelativePath": "api/insertarAsignatura",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "profesor",
+        "Type": "AccesoDatos.Models.Asignatura",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.AlumnoController",
     "Method": "insertarMatricular",
     "RelativePath": "api/insertarMatricular",
@@ -220,6 +371,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApi.Controllers.ProductoController",
+    "Method": "insertarMatricular",
+    "RelativePath": "api/insertarProducto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "producto",
+        "Type": "AccesoDatos.Models.Producto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.CalificacionController",
     "Method": "insertCalificacion",
     "RelativePath": "api/insertCalificacion",
@@ -236,6 +403,126 @@
     "ReturnTypes": [
       {
         "Type": "AccesoDatos.Models.Calificacion",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProductoController",
+    "Method": "actualizarProfesor",
+    "RelativePath": "api/producto/{id_producto}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_producto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "producto",
+        "Type": "AccesoDatos.Models.Producto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProfesorController",
+    "Method": "insertarProfesor",
+    "RelativePath": "api/profesor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "profesor",
+        "Type": "AccesoDatos.Models.Profesor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProfesorController",
+    "Method": "getProfesorID",
+    "RelativePath": "api/profesor/{usuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AccesoDatos.Models.Profesor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProfesorController",
+    "Method": "actualizarProfesor",
+    "RelativePath": "api/profesor/{usuario}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "profesor",
+        "Type": "AccesoDatos.Models.Profesor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProfesorController",
+    "Method": "eliminarProfesor",
+    "RelativePath": "api/profesor/{usuario}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ProfesorController",
+    "Method": "getProfesores",
+    "RelativePath": "api/profesores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[AccesoDatos.Models.Profesor, AccesoDatos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

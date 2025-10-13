@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as API from "../services/data";
 import Swal from "sweetalert2";
 import * as XLSX from "xlsx";
-import * as JSPDF from "jspdf";
+import JSPDF  from "jspdf";
 import autoTable from "jspdf-autotable";
 
 export function Alumnos() {

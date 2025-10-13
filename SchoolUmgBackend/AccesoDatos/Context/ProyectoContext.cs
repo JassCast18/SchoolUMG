@@ -18,6 +18,8 @@ public partial class ProyectoContext : DbContext
 
     public virtual DbSet<Alumno> Alumnos { get; set; }
 
+    public virtual DbSet<Producto> Productos { get; set; }
+
     public virtual DbSet<Asignatura> Asignaturas { get; set; }
 
     public virtual DbSet<Calificacion> Calificacions { get; set; }
@@ -25,6 +27,10 @@ public partial class ProyectoContext : DbContext
     public virtual DbSet<Matricula> Matriculas { get; set; }
 
     public virtual DbSet<Profesor> Profesors { get; set; }
+
+    public virtual DbSet<AlumnosPorAsignatura> AlumnoPorAsignaturas { get; set; }
+
+    public virtual DbSet<DistribucionCalificaciones> DistribucionCalificaciones { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -56,6 +62,27 @@ public partial class ProyectoContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
+        });
+
+        modelBuilder.Entity<Producto>(entity =>
+        {
+            entity.HasKey(e => e.id_producto).HasName("PK__producto__3213E83F51148AF5");
+
+            entity.ToTable("productos");
+
+            entity.Property(e => e.id_producto).HasColumnName("id_producto");
+            entity.Property(e => e.descripcion)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("descripcion");
+            entity.Property(e => e.stock).HasColumnName("stock");
+            entity.Property(e => e.precio_venta).HasColumnName("precio_venta");
+            entity.Property(e => e.id_categoria)
+                .HasColumnName("id_categoria");
+            entity.Property(e => e.fecha_ingreso)
+                .HasColumnName("fecha_ingreso");
+            entity.Property(e => e.fecha_caducidad)
+                .HasColumnName("fecha_caducidad");
         });
 
         modelBuilder.Entity<Asignatura>(entity =>
@@ -146,6 +173,27 @@ public partial class ProyectoContext : DbContext
                 .HasColumnName("pass");
         });
 
+        modelBuilder.Entity<AlumnosPorAsignatura>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToView("vw_AlumnosPorAsignatura");
+            entity.Property(e => e.IdAsignatura).HasColumnName("idAsignatura");
+            entity.Property(e => e.NombreAsignatura).HasColumnName("NombreAsignatura");
+            entity.Property(e => e.TotalAlumnos).HasColumnName("TotalAlumnos");
+
+        });
+
+
+        modelBuilder.Entity<DistribucionCalificaciones>(entity =>
+        {
+            entity.HasNoKey();
+            entity.ToView("vw_DistribucionCalificaciones");
+            entity.Property(e => e.Matriculaid).HasColumnName("MatriculaId");
+            entity.Property(e => e.Alumnoid).HasColumnName("AlumnoId");
+            entity.Property(e => e.NombreAlumno).HasColumnName("NombreAlumno");
+            entity.Property(e => e.NotaFinal).HasColumnName("NotaFinal");
+
+        });
         OnModelCreatingPartial(modelBuilder);
     }
 

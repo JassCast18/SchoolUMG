@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xb4LmWHyvIw=",
+  "dgSpecHash": "6g7k3n7JY08=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmg\\SchoolUmg\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\SchoolUmg\\SchoolUmgBackend\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
