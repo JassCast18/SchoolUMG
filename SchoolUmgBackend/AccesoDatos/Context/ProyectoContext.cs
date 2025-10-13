@@ -18,6 +18,8 @@ public partial class ProyectoContext : DbContext
 
     public virtual DbSet<Alumno> Alumnos { get; set; }
 
+    public virtual DbSet<Producto> Productos { get; set; }
+
     public virtual DbSet<Asignatura> Asignaturas { get; set; }
 
     public virtual DbSet<Calificacion> Calificacions { get; set; }
@@ -60,6 +62,27 @@ public partial class ProyectoContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
+        });
+
+        modelBuilder.Entity<Producto>(entity =>
+        {
+            entity.HasKey(e => e.id_producto).HasName("PK__producto__3213E83F51148AF5");
+
+            entity.ToTable("productos");
+
+            entity.Property(e => e.id_producto).HasColumnName("id_producto");
+            entity.Property(e => e.descripcion)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("descripcion");
+            entity.Property(e => e.stock).HasColumnName("stock");
+            entity.Property(e => e.precio_venta).HasColumnName("precio_venta");
+            entity.Property(e => e.id_categoria)
+                .HasColumnName("id_categoria");
+            entity.Property(e => e.fecha_ingreso)
+                .HasColumnName("fecha_ingreso");
+            entity.Property(e => e.fecha_caducidad)
+                .HasColumnName("fecha_caducidad");
         });
 
         modelBuilder.Entity<Asignatura>(entity =>

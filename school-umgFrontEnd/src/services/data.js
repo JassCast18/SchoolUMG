@@ -90,6 +90,80 @@ export function getAsignaturas(){
     });
 }
 
+export function getAllAsignaturas(){
+    return fetch(`${URL}getAllAsignaturas`)
+    .then(res => {
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status);
+        return res.json();
+    });
+}
+export function getAsignaturaId(id){
+    return fetch(`${URL}getAsignaturaId?id=${id}`)
+    .then(res => {
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status);
+        return res.json();
+    });
+}
+
+export function insertarAsignatura(asignatura){
+    const url= `${URL}insertarAsignatura`;
+    const body ={
+        nombre: asignatura.nombre,
+        creditos: Number(asignatura.creditos),
+        profesor: asignatura.profesor
+    };
+        
+    
+    return fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+
+}
+
+export function actualizarAsignatura(asignatura){
+
+    const url = `${URL}actualizarAsignatura?id=${asignatura.id}`;
+    const body = {
+        id: Number(asignatura.id),
+        nombre: asignatura.nombre,
+        creditos: Number(asignatura.creditos),
+        profesor: asignatura.profesor
+
+        
+    };
+    return fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+}
+export function eliminarAsignatura(id){
+    return fetch(`${URL}eliminarAsignatura?id=${id}`, {
+        method: 'DELETE'
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+}
+
 /* CALificACIONES */
 
 export function getCalificacionesProfesor(usuario){
@@ -253,4 +327,80 @@ export function getDistribucionCalificaciones() {
             if (!res.ok) throw new Error("Error en la solicitud: " + res.status);
             return res.json();
         });
+}
+
+/* 
+PRODUCTOS */
+
+export function getProductos(){
+    return fetch(`${URL}getProductos`)
+    .then(res => {
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status);
+        return res.json();
+    });
+}
+export function getProductosID(producto){
+    return fetch(`${URL}getProductosId/${producto.id}`)
+    .then(res => {
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status);
+        return res.json();
+    });
+}
+
+export function insertarProducto(producto){
+    const url= `${URL}insertarProducto`;
+    const body ={
+        descripcion: producto.descripcion,
+        stock: producto.stock,
+        precio_venta: producto.precio_venta,
+        id_categoria: producto.id_categoria,
+        fecha_ingreso: producto.fecha_ingreso,
+        fecha_caducidad: producto.fecha_caducidad
+        
+    };
+    return fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
+}
+export function actualizarProducto(producto){
+    const url = `${URL}producto/${producto.id_producto}`; // <- aquí usas id_producto
+    const body = {
+        id_producto: producto.id_producto,   // <- corregir nombre
+        descripcion: producto.descripcion,
+        stock: producto.stock,
+        precio_venta: producto.precio_venta,
+        id_categoria: producto.id_categoria,
+        fecha_ingreso: producto.fecha_ingreso,
+        fecha_caducidad: producto.fecha_caducidad
+    };
+    return fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud ' + res.status + text);
+        return text;
+    });
+}
+
+export function eliminarProducto(producto){
+    return fetch(`${URL}eliminarProducto/${producto.id}`, {
+        method: 'DELETE'
+    })
+    .then( async res => {
+        const text = await res.text();
+        if(!res.ok) throw new Error('Error en la solicitud' + res.status + text);
+        return text;
+    });
 }

@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as API from "../services/data";
 import Swal from "sweetalert2";
 import * as XLSX from "xlsx";
@@ -57,7 +57,7 @@ export const Profesores = () => {
     });
 
     const handleAgregar = () => {
-        setCurrentAlumno({
+        setCurrentProfesor({
             usuario: "",
             pass: "",
             nombre: "",
