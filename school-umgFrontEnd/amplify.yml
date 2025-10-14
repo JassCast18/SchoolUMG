@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd school-umgFrontEnd
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: school-umgFrontEnd/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - school-umgFrontEnd/node_modules/**/*
