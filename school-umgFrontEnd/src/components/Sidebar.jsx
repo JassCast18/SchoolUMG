@@ -17,9 +17,9 @@ export const Sidebar = () => {
             <li className="nav-item mb-2">
                 <Link className="nav-link text-white" to="/dashboard/calificaciones">Calificaciones</Link>
             </li>
-            <li className="nav-item mb-2">
+            {/* <li className="nav-item mb-2">
                 <Link className="nav-link text-white" to="/dashboard/productos">Productos</Link>
-            </li>
+            </li> */}
             <li className="nav-item mb-2">
                 <Link className="nav-link text-white" to="/dashboard/productos">Productos</Link>
             </li>
