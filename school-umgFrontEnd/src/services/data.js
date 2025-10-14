@@ -1,4 +1,4 @@
-const URL = 'http://localhost:5219/api/';
+const URL = 'https://etmvxkxkzl.execute-api.us-east-1.amazonaws.com/dev/api/';
 
 export function login(usuario, pass){
     let datos = {usuario, pass};
