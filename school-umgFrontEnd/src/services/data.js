@@ -91,7 +91,7 @@ export function getAsignaturas(){
 }
 
 export function getAllAsignaturas(){
-    return fetch(`${URL}getAllAsignaturas`)
+    return fetch(`https://etmvxkxkzl.execute-api.us-east-1.amazonaws.com/dev/api/getALLAsignaturas`)
     .then(res => {
         if(!res.ok) throw new Error('Error en la solicitud' + res.status);
         return res.json();
